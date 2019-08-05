@@ -1,6 +1,6 @@
 # Application Overview
 
-The Application Starter demonstrates a simple start.
+The Application overview demonstrates a simple start.
 
 ## Requirements 
 - It's necessary has docker and docker-compose installed.
