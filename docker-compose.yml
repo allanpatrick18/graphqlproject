@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER : "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "15432:5432"
+    networks:
+      - postgres-compose-network
+
+  web:
+    image: app
+    ports:
+      - "9997:8080"
+    depends_on:
+      - migration
+    networks:
+      - postgres-compose-network
+
+  migration:
+    build: .
+    image: app
+    command: bash -c "python manage.py migrate && python manage.py loaddata /opt/backend/app/backend_test/FIXTURE/initial_data.json"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge

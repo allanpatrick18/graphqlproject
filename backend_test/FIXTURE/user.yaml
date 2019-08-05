@@ -1,0 +1,15 @@
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$150000$sB6ZWmqYGSqv$RuKh/3Gea5RY+91juzptdi/H/C5fol3vkiTV0UZBDcA=
+    last_login: 2019-04-13T17:01:21.490Z
+    is_superuser: true
+    username: backend
+    first_name: Backend
+    last_name: End
+    email: backend@admin.com
+    is_staff: true
+    is_active: true
+    date_joined: 2019-04-04T02:39:58.774Z
+
+
